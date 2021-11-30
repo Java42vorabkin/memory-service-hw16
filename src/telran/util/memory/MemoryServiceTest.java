@@ -29,6 +29,16 @@ class MemoryServiceTest {
 		System.out.printf("The End. Max size=%dM", maxSize/MG);
 	}
 //	@Test
+	void printMemoryAllocation() {
+		Runtime runtime = Runtime.getRuntime();
+		long MG = 1024 * 1024;
+		System.out.printf("free memory %dM | total memory %dM | maximal memory %dM\n",
+				runtime.freeMemory() / MG, runtime.totalMemory() / MG, runtime.maxMemory() / MG);
+		// free memory available for JVM with no request of additional memory
+		// total memory for JVM with no request of additional memory
+		// maximal memory the JVM can require for OS
+	}
+//	@Test
 	void singletonIntro() {
 		Regular r1 = new Regular();
 		Regular r2 = new Regular();
